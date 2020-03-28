@@ -93,6 +93,11 @@ public class CameraRollModule extends ReactContextBaseJavaModule {
     return NAME;
   }
 
+  @Override
+  public boolean canOverrideExistingModule() {
+    return true;
+  }
+
   /**
    * Save an image to the gallery (i.e. {@link MediaStore.Images}). This copies the original file
    * from wherever it may be to the external storage pictures directory, so that it can be scanned
@@ -332,10 +337,10 @@ public class CameraRollModule extends ReactContextBaseJavaModule {
         selection.append(" AND " + Images.Media.DATE_TAKEN + " <= ?");
         selectionArgs.add(mToTime + "");
       }
-      
+
       WritableMap response = new WritableNativeMap();
       ContentResolver resolver = mContext.getContentResolver();
-      
+
       try {
         // set LIMIT to first + 1 so that we know how to populate page_info
         String limit = "limit=" + (mFirst + 1);
