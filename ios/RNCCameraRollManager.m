@@ -17,7 +17,7 @@
 
 #import <React/RCTBridge.h>
 #import <React/RCTConvert.h>
-#import <React/RCTImageLoaderProtocol.h>
+#import <React/RCTLocalAssetImageLoader.h>
 #import <React/RCTLog.h>
 #import <React/RCTUtils.h>
 
